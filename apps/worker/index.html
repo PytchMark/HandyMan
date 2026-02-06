@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>ClickTrade Worker Portal</title>
+<link rel='stylesheet' href='/public/assets/css/shared.css'><link rel='stylesheet' href='/apps/worker/worker.css'></head>
+<body>
+<div id='loginView' class='center'>
+  <form id='loginForm' class='card login-card'><h2>Worker Login</h2><input class='input' id='identity' placeholder='Worker ID or email'><input class='input' id='passcode' type='password' placeholder='Passcode'><button class='btn'>Enter Portal</button></form>
+</div>
+<div id='dashboardView' class='layout' style='display:none'>
+  <aside class='sidebar'><h3>ClickTrade</h3><div class='nav-item active' data-panel='dashboard'>Dashboard</div><div class='nav-item' data-panel='requests'>Requests Inbox</div><div class='nav-item' data-panel='portfolio'>Portfolio</div><div class='nav-item' data-panel='profile'>Profile</div><div class='nav-item' data-panel='settings'>Settings</div></aside>
+  <main style='padding:1rem'>
+    <section class='panel active' id='panel-dashboard'><div id='kpis' class='grid kpis'></div><canvas id='trendChart' width='700' height='220'></canvas></section>
+    <section class='panel' id='panel-requests'><div style='display:flex;gap:.5rem'><select id='reqStatus'><option value=''>All statuses</option><option>new</option><option>contacted</option><option>scheduled</option><option>completed</option><option>archived</option></select><input class='input' id='reqQuery' placeholder='Search name/phone/request ID'><button class='btn' id='reqFilter'>Filter</button></div><div id='reqList'></div><aside id='requestDrawer'></aside></section>
+    <section class='panel' id='panel-portfolio'><input type='file' id='portfolioFiles' multiple><button class='btn' id='uploadBtn'>Upload</button><div id='portfolioGrid' class='grid'></div></section>
+    <section class='panel' id='panel-profile'><div id='completion'></div><div class='grid two'><input class='input' id='name' placeholder='Name'><input class='input' id='whatsapp' placeholder='WhatsApp'><select id='parish'></select><input class='input' id='categories' placeholder='Categories comma-separated'><textarea class='input' id='bio' placeholder='Bio'></textarea><input class='input' id='experience' placeholder='Years experience'><input class='input' id='qualifications' placeholder='Qualifications'><input class='input' id='logo' placeholder='Logo URL'></div><button class='btn' id='saveProfile'>Save Profile</button></section>
+    <section class='panel' id='panel-settings'><button class='btn secondary' id='refreshBtn'>Refresh Data</button><button class='btn' id='logoutBtn'>Logout</button></section>
+  </main>
+</div>
+<script src='/public/assets/js/api.js'></script><script src='/public/assets/js/ui.js'></script><script src='/public/assets/js/formatters.js'></script><script src='/apps/worker/merchant.js'></script>
+</body></html>
