@@ -1,0 +1,1 @@
+.center{min-height:100vh;display:grid;place-items:center}.login-card{width:min(420px,95vw)}#workersTable .row,#requestsTable .row{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:.5rem;padding:.6rem;border-bottom:1px solid #2a2a2a}

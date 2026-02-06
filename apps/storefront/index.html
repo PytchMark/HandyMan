@@ -1,0 +1,23 @@
+<!doctype html><html><head><meta charset='utf-8'/><meta name='viewport' content='width=device-width,initial-scale=1'/><title>ClickTrade Storefront</title>
+<link rel='stylesheet' href='/public/assets/css/shared.css'><link rel='stylesheet' href='/apps/storefront/storefront.css'></head>
+<body>
+<header class='hero'>
+  <video autoplay muted loop playsinline class='hero-video'><source src='https://cdn.coverr.co/videos/coverr-hands-with-tools-1579/1080p.mp4' type='video/mp4'></video>
+  <div class='overlay'></div>
+  <div class='hero-inner'>
+    <h1>Verified professionals. Fast response. Zero guesswork.</h1>
+    <p>Book trusted skilled workers in Jamaica with transparent contact and real proof of work.</p>
+    <div class='hero-actions'><button class='btn' onclick="document.getElementById('search').scrollIntoView({behavior:'smooth'})">Search Now</button><a class='btn secondary' href='/worker'>Become a Provider</a></div>
+  </div>
+</header>
+<main>
+<section id='search' class='search-box card'>
+  <h2>Find a pro near you</h2>
+  <div class='grid search-grid'>
+    <select id='category'></select><select id='parish'></select><input class='input' id='keyword' placeholder='Keyword (optional)'/><button class='btn' id='searchBtn'>Search</button>
+  </div>
+</section>
+<section><div id='results' class='grid cards'></div></section>
+</main>
+<script src='/public/assets/js/api.js'></script><script src='/public/assets/js/ui.js'></script><script src='/public/assets/js/formatters.js'></script><script src='/apps/storefront/storefront.js'></script>
+</body></html>

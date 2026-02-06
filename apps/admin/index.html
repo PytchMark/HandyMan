@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>ClickTrade Admin</title>
+<link rel='stylesheet' href='/public/assets/css/shared.css'><link rel='stylesheet' href='/apps/admin/admin.css'></head><body>
+<div id='adminLogin' class='center'><form id='adminLoginForm' class='card login-card'><h2>Admin Console</h2><input id='adminUser' class='input' placeholder='Admin username/email'><input id='adminPass' type='password' class='input' placeholder='Password'><button class='btn'>Login</button></form></div>
+<div id='adminApp' class='layout' style='display:none'>
+<aside class='sidebar'><h3>ClickTrade Admin</h3><div class='nav-item active' data-panel='overview'>Overview</div><div class='nav-item' data-panel='workers'>Workers</div><div class='nav-item' data-panel='requests'>Requests</div><div class='nav-item' data-panel='categories'>Categories</div></aside>
+<main style='padding:1rem'>
+<section id='panel-overview' class='panel active'><div id='overviewStats' class='grid'></div></section>
+<section id='panel-workers' class='panel'><div style='display:flex;gap:.5rem'><input class='input' id='wQuery' placeholder='Search workers'><select id='wParish'></select><select id='wStatus'><option value=''>Any status</option><option>active</option><option>paused</option></select><button class='btn' id='wSearch'>Search</button></div><div id='workersTable'></div></section>
+<section id='panel-requests' class='panel'><div id='requestsTable'></div></section>
+<section id='panel-categories' class='panel'><div class='card'>MVP categories are managed in frontend config. Move to table later.</div></section>
+</main></div>
+<script src='/public/assets/js/api.js'></script><script src='/public/assets/js/ui.js'></script><script src='/public/assets/js/formatters.js'></script><script src='/apps/admin/admin.js'></script>
+</body></html>
