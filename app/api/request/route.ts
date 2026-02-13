@@ -1,11 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { allowRequest } from '@/lib/rate-limit';
 import { requestSchema } from '@/lib/validators';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 import { createWhatsAppLink } from '@/lib/whatsapp';
 import { sendNotification } from '@/lib/email';
 
+
 export async function POST(req: NextRequest) {
+  const supabaseAdmin = getSupabaseAdmin();
   const ip = req.headers.get('x-forwarded-for') || 'unknown';
   if (!allowRequest(`request:${ip}`)) return NextResponse.json({ error: 'Rate limited' }, { status: 429 });
   const payload = requestSchema.parse(await req.json());

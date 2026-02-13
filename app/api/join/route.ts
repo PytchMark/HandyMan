@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { allowRequest } from '@/lib/rate-limit';
 import { workforceSchema } from '@/lib/validators';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 import { sendNotification } from '@/lib/email';
 
+
 export async function POST(req: NextRequest) {
+  const supabaseAdmin = getSupabaseAdmin();
   const ip = req.headers.get('x-forwarded-for') || 'unknown';
   if (!allowRequest(`join:${ip}`)) return NextResponse.json({ error: 'Rate limited' }, { status: 429 });
   const payload = workforceSchema.parse(await req.json());
