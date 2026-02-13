@@ -1,12 +1,15 @@
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 
+
 export default async function Page({ params }: { params: { id: string } }) {
+  const supabaseAdmin = getSupabaseAdmin();
   const { data } = await supabaseAdmin.from('workforce_applications').select('*').eq('id', params.id).single();
   if (!data) return <p>Not found</p>;
 
   async function updateStatus(formData: FormData) {
     'use server';
+    const supabaseAdmin = getSupabaseAdmin();
     const status = String(formData.get('status'));
     await supabaseAdmin.from('workforce_applications').update({ status }).eq('id', params.id);
   }
